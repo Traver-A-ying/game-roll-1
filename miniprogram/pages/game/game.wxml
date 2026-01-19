@@ -1,0 +1,102 @@
+<view class="page">
+  <view class="hero">
+    <view class="hero-title">
+      <text class="hero-icon">⬢</text>
+      <view>
+        <text class="title">无限骰子</text>
+        <text class="subtitle">INFINITE DICE • 每一次投掷都是奇迹</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <text class="section-title">🎮 怎么玩？</text>
+    <view class="rules">
+      <text>1. 定数 (Roll N)：先投 1 个骰子，点数是几，你就获得几颗骰子。</text>
+      <text>2. 对决 (Score)：投掷手中的骰子，计算总分。</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <text class="section-title">🔥 欧皇倍率 (N &gt; 3)</text>
+    <view class="bonus-table">
+      <view class="bonus-row">
+        <text class="bonus-name">❤️ 天选</text>
+        <text class="bonus-tag tag-red">520分</text>
+        <text class="bonus-desc">全1 或 全6（封顶）</text>
+      </view>
+      <view class="bonus-row">
+        <text class="bonus-name">🐯 豹子</text>
+        <text class="bonus-tag tag-gold">× 5</text>
+        <text class="bonus-desc">点数全部相同</text>
+      </view>
+      <view class="bonus-row">
+        <text class="bonus-name">🐉 顺子</text>
+        <text class="bonus-tag tag-green">× 4</text>
+        <text class="bonus-desc">点数连续（如 2 3 4 5）</text>
+      </view>
+      <view class="bonus-row">
+        <text class="bonus-name">🌀 纯净</text>
+        <text class="bonus-tag tag-blue">× 2</text>
+        <text class="bonus-desc">全是奇数 或 全是偶数</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <text class="section-title">💣 绝境翻盘 (N &lt; 3)</text>
+    <view class="warning">
+      <text class="warning-title">🚀 触发【无限连击】机制</text>
+      <text>
+        当开局只获得 1 或 2 颗骰子时，只要投出 <text class="highlight">6</text>，该骰子计分并裂变出新的投掷机会！
+      </text>
+      <text class="muted">（理论上分数无上限！）</text>
+    </view>
+    <text class="note">*注：若投出 3 颗骰子，则为【稳健时刻】，无特殊加成。</text>
+  </view>
+
+  <view class="card play-area">
+    <view class="controls">
+      <button class="primary" bindtap="rollN" disabled="{{buttonsDisabled}}">🎲 Roll N</button>
+      <button class="secondary" bindtap="score" disabled="{{buttonsDisabled || !diceCount}}">⚔️ Score</button>
+      <button class="ghost" bindtap="reset" disabled="{{buttonsDisabled}}">重置</button>
+    </view>
+
+    <view class="dice-visual" aria-live="polite">
+      <view
+        wx:for="{{diceValues}}"
+        wx:key="index"
+        class="die {{isRolling ? 'rolling' : ''}}"
+      >
+        {{item}}
+      </view>
+    </view>
+
+    <view class="status">
+      <view>
+        <text class="label">当前骰子数</text>
+        <text class="value">{{diceCountDisplay}}</text>
+      </view>
+      <view>
+        <text class="label">上次点数</text>
+        <text class="value">{{lastRollDisplay}}</text>
+      </view>
+      <view>
+        <text class="label">最终得分</text>
+        <text class="value">{{totalScore}}</text>
+      </view>
+    </view>
+
+    <view class="dice-log">
+      <text class="log-title">投掷记录</text>
+      <view class="log">
+        <view class="log-entry" wx:for="{{logs}}" wx:key="index">
+          <text>{{item.title}}</text>
+          <text>{{item.detail}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer">Good Luck! 🍀 今晚谁是欧皇？</view>
+</view>

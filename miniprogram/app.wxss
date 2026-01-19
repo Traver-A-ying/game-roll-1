@@ -1,0 +1,6 @@
+page {
+  color: #f2f5ff;
+  font-family: "Segoe UI", "PingFang SC", "Hiragino Sans GB", sans-serif;
+  background: radial-gradient(circle at top, #1f2340, #121326 45%, #0f1120 100%);
+  min-height: 100vh;
+}

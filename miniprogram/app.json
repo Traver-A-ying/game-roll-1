@@ -1,0 +1,9 @@
+{
+  "pages": ["pages/game/game"],
+  "window": {
+    "navigationBarTitleText": "无限骰子",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#16182a",
+    "navigationBarTextStyle": "white"
+  }
+}
