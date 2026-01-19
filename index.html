@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>无限骰子 | Infinite Dice</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <div class="hero-title">
+          <span class="hero-icon">⬢</span>
+          <div>
+            <h1>无限骰子</h1>
+            <p class="subtitle">INFINITE DICE • 每一次投掷都是奇迹</p>
+          </div>
+        </div>
+      </header>
+
+      <section class="card">
+        <h2 class="section-title">🎮 怎么玩？</h2>
+        <ol class="rules">
+          <li><strong>定数 (Roll N)：</strong>先投 1 个骰子，点数是几，你就获得几颗骰子。</li>
+          <li><strong>对决 (Score)：</strong>投掷手中的骰子，计算总分。</li>
+        </ol>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">🔥 欧皇倍率 (N &gt; 3)</h2>
+        <div class="bonus-table">
+          <div class="bonus-row">
+            <span class="bonus-name">❤️ 天选</span>
+            <span class="bonus-tag tag-red">520分</span>
+            <span class="bonus-desc">全1 或 全6（封顶）</span>
+          </div>
+          <div class="bonus-row">
+            <span class="bonus-name">🐯 豹子</span>
+            <span class="bonus-tag tag-gold">× 5</span>
+            <span class="bonus-desc">点数全部相同</span>
+          </div>
+          <div class="bonus-row">
+            <span class="bonus-name">🐉 顺子</span>
+            <span class="bonus-tag tag-green">× 4</span>
+            <span class="bonus-desc">点数连续（如 2 3 4 5）</span>
+          </div>
+          <div class="bonus-row">
+            <span class="bonus-name">🌀 纯净</span>
+            <span class="bonus-tag tag-blue">× 2</span>
+            <span class="bonus-desc">全是奇数 或 全是偶数</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">💣 绝境翻盘 (N &lt; 3)</h2>
+        <div class="warning">
+          <h3>🚀 触发【无限连击】机制</h3>
+          <p>
+            当开局只获得 1 或 2 颗骰子时，只要投出 <strong>6</strong>，该骰子计分并裂变出新的投掷机会！
+          </p>
+          <p class="muted">（理论上分数无上限！）</p>
+        </div>
+        <p class="note">*注：若投出 3 颗骰子，则为【稳健时刻】，无特殊加成。</p>
+      </section>
+
+      <section class="card play-area">
+        <div class="controls">
+          <button id="roll-n" class="primary">🎲 Roll N</button>
+          <button id="score" class="secondary" disabled>⚔️ Score</button>
+          <button id="reset" class="ghost">重置</button>
+        </div>
+
+        <div class="status">
+          <div>
+            <p class="label">当前骰子数</p>
+            <p id="dice-count" class="value">-</p>
+          </div>
+          <div>
+            <p class="label">上次点数</p>
+            <p id="last-roll" class="value">-</p>
+          </div>
+          <div>
+            <p class="label">最终得分</p>
+            <p id="total-score" class="value">0</p>
+          </div>
+        </div>
+
+        <div class="dice-log">
+          <h3>投掷记录</h3>
+          <div id="log" class="log"></div>
+        </div>
+      </section>
+
+      <footer class="footer">Good Luck! 🍀 今晚谁是欧皇？</footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
